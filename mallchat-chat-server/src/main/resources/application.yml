@@ -1,0 +1,23 @@
+spring:
+  profiles:
+    #运行的环境
+    active: test
+  application:
+    name: popcorn
+  datasource:
+    url: jdbc:mysql://${popcorn.mysql.ip}:${popcorn.mysql.port}/${popcorn.mysql.db}?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: ${popcorn.mysql.username}
+    password: ${popcorn.mysql.password}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    # Redis服务器地址
+    host: ${popcorn.redis.host}
+    # Redis服务器端口号
+    port: ${popcorn.redis.port}
+    # 使用的数据库索引，默认是0
+    database: ${popcorn.redis.database}
+    # 连接超时时间
+    timeout: 1800000
+  jackson:
+    serialization:
+      write-dates-as-timestamps: true
