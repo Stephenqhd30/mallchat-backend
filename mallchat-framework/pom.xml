@@ -10,11 +10,8 @@
 	<artifactId>mallchat-framework</artifactId>
 	<packaging>pom</packaging>
 
-	<name>mallchat-farmwork</name>
+	<name>mallchat-framework</name>
 	<url>http://maven.apache.org</url>
-	<modules>
-		<module>mallchat-common-starter</module>
-	</modules>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

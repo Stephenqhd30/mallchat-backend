@@ -6,77 +6,277 @@
   <artifactId>mallchat-backend</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
-
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.7.6</version>
+    <relativePath/> <!-- lookup parent from repository -->
+  </parent>
   <name>mallchat-backend</name>
   <url>http://maven.apache.org</url>
   <modules>
     <module>mallchat-chat-server</module>
-    <module>mallchat-chat-server</module>
     <module>mallchat-framework</module>
+    <module>mallchat-common</module>
   </modules>
-
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <java.version>1.8</java.version>
+    <!-- SpringBoot -->
+    <spring-boot.version>2.7.6</spring-boot.version>
+    <!-- Java -->
+    <java.version>11</java.version>
+    <!-- Lombok -->
     <lombok.version>1.18.24</lombok.version>
-    <spring-boot-stater.version>2.7.6</spring-boot-stater.version>
-    <spring-boot-stater-aop.version>2.7.2</spring-boot-stater-aop.version>
-    <spring-boot-starter-validation.version>2.7.6</spring-boot-starter-validation.version>
-    <spring-boot-starter-web.version>2.7.4</spring-boot-starter-web.version>
-    <hutool.version>5.8.27</hutool.version>
-    <mybatis.version>3.5.10</mybatis.version>
-
-    <skipTests>true</skipTests>
-    <docker.host>http://192.168.3.101:2375</docker.host>
-    <springfox-swagger.version>3.0.0</springfox-swagger.version>
-    <swagger-models.version>1.6.0</swagger-models.version>
-    <mybatis-plus-generator.version>3.4.1</mybatis-plus-generator.version>
-    <mysql-connector.version>8.0.29</mysql-connector.version>
-    <spring-data-commons.version>2.7.5</spring-data-commons.version>
-    <jjwt.version>0.9.1</jjwt.version>
-    <logstash-logback.version>7.2</logstash-logback.version>
-    <minio.version>8.4.5</minio.version>
+    <!-- Hutool -->
+    <hutool.version>5.8.32</hutool.version>
+    <!-- MyBatis -->
+    <mybatis.version>2.2.2</mybatis.version>
+    <!-- Minio -->
+    <minio.version>8.5.12</minio.version>
+    <!-- jaxb-api -->
     <jaxb-api.version>2.3.1</jaxb-api.version>
-    <netty-all.version>4.1.76.Final</netty-all.version>
-    <weixin-java-mp.version>4.4.0</weixin-java-mp.version>
-    <mybatis-plus-boot-starter.version>3.4.0</mybatis-plus-boot-starter.version>
+    <!-- Netty -->
+    <netty-all.version>4.1.114.Final</netty-all.version>
+    <!-- weixin -->
+    <wx.java.mp.version>4.4.0</wx.java.mp.version>
+    <!-- MyBatis-Plus -->
+    <mybatis-plus-boot-starter.version>3.5.2</mybatis-plus-boot-starter.version>
+    <!-- jsoup -->
     <jsoup.version>1.15.3</jsoup.version>
+    <!-- ok-http -->
     <okhttp.version>4.8.1</okhttp.version>
-    <redisson-spring-boot-starter.version>3.17.1</redisson-spring-boot-starter.version><project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <!-- Redisson -->
+    <redisson.version>3.22.0</redisson.version>
+    <!-- commons-fileupload -->
+    <commons-fileupload.version>1.5</commons-fileupload.version>
+    <!-- junit -->
+    <junit.version>5.8.0</junit.version>
+    <!-- commons-io -->
+    <commons-io.version>2.15.0</commons-io.version>
+    <!-- ip2region -->
+    <ip2region.version>2.7.0</ip2region.version>
+    <!-- knife4j -->
+    <knife4j.version>4.4.0</knife4j.version>
+    <!-- caffeine -->
+    <caffeine.version>3.1.8</caffeine.version>
+    <!-- cos-api -->
+    <cos-api.version>5.6.89</cos-api.version>
+    <!-- activation -->
+    <activation.version>1.1.1</activation.version>
+    <!-- jaxb-runtime -->
+    <jaxb-runtime.version>2.3.3</jaxb-runtime.version>
+    <!-- sa-token -->
+    <sa-token.version>1.39.0</sa-token.version>
+    <!-- mysql -->
+    <mysql.version>8.0.33</mysql.version>
+    <!-- commons-pool2 -->
+    <commons-pool2.version>2.4.2</commons-pool2.version>
+    <!-- commons-lang3 -->
+    <commons-lang3.version>3.12.0</commons-lang3.version>
+    <!-- session -->
+    <spring-session.version>1.3.1.RELEASE</spring-session.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
   <dependencyManagement>
     <dependencies>
-      <!-- mallchat-common-starter -->
+      <!-- mallchat-common -->
       <dependency>
         <groupId>com.stephen</groupId>
-        <artifactId>mallchat-common-starter</artifactId>
-        <version>${version}</version>
+        <artifactId>mallchat-common</artifactId>
+        <version>${project.version}</version>
       </dependency>
-      <!-- spring-boot-starter -->
       <dependency>
         <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter</artifactId>
-        <version>${spring-boot-stater.version}</version>
+        <artifactId>spring-boot-starter-freemarker</artifactId>
+        <version>${spring-boot.version}</version>
       </dependency>
-      <!-- spring-boot-starter-aop -->
-      <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-aop</artifactId>
-        <version>${spring-boot-stater-aop.version}</version>
-      </dependency>
-      <!-- spring-boot-starter-validation -->
-      <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-validation</artifactId>
-        <version>${spring-boot-starter-validation.version}</version>
-      </dependency>
-      <!-- spring-boot-starter-web -->
       <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-web</artifactId>
-        <version>${spring-boot-starter-web.version}</version>
+        <version>${spring-boot.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-aop</artifactId>
+        <version>${spring-boot.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-validation</artifactId>
+        <version>${spring-boot.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-cache</artifactId>
+        <version>${spring-boot.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-test</artifactId>
+        <version>${spring-boot.version}</version>
+      </dependency>
+      <!-- Mybatis -->
+      <dependency>
+        <groupId>org.mybatis.spring.boot</groupId>
+        <artifactId>mybatis-spring-boot-starter</artifactId>
+        <version>${mybatis.version}</version>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-boot-starter -->
+      <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus-boot-starter</artifactId>
+        <version>${mybatis-plus-boot-starter.version}</version>
+      </dependency>
+      <!-- redis -->
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-data-redis</artifactId>
+        <version>${spring-boot.version}</version>
+      </dependency>
+      <!-- session -->
+      <dependency>
+        <groupId>org.springframework.session</groupId>
+        <artifactId>spring-session-data-redis</artifactId>
+        <version>${spring-session.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-configuration-processor</artifactId>
+        <version>${spring-boot.version}</version>
+        <optional>true</optional>
+      </dependency>
+      <!-- elasticsearch-->
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+        <version>${spring-boot.version}</version>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/com.github.binarywang/wx-java-mp-spring-boot-starter -->
+      <dependency>
+        <groupId>com.github.binarywang</groupId>
+        <artifactId>wx-java-mp-spring-boot-starter</artifactId>
+        <version>${wx.java.mp.version}</version>
+      </dependency>
+      <!-- https://doc.xiaominfo.com/docs/quick-start#openapi2 -->
+      <dependency>
+        <groupId>com.github.xiaoymin</groupId>
+        <artifactId>knife4j-openapi2-spring-boot-starter</artifactId>
+        <version>${knife4j.version}</version>
+      </dependency>
+      <!-- https://github.com/ben-manes/caffeine -->
+      <dependency>
+        <groupId>com.github.ben-manes.caffeine</groupId>
+        <artifactId>caffeine</artifactId>
+        <version>${caffeine.version}</version>
+      </dependency>
+      <!-- https://cloud.tencent.com/document/product/436/10199-->
+      <dependency>
+        <groupId>com.qcloud</groupId>
+        <artifactId>cos_api</artifactId>
+        <version>${cos-api.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>javax.xml.bind</groupId>
+        <artifactId>jaxb-api</artifactId>
+        <version>${jaxb-api.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>javax.activation</groupId>
+        <artifactId>activation</artifactId>
+        <version>${activation.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.glassfish.jaxb</groupId>
+        <artifactId>jaxb-runtime</artifactId>
+        <version>${jaxb-runtime.version}</version>
+      </dependency>
+      <!-- Minio -->
+      <dependency>
+        <groupId>io.minio</groupId>
+        <artifactId>minio</artifactId>
+        <version>${minio.version}</version>
+      </dependency>
+      <!-- sa-token 权限认证, 在线文档：https://sa-token.cc/ -->
+      <dependency>
+        <groupId>cn.dev33</groupId>
+        <artifactId>sa-token-spring-boot-starter</artifactId>
+        <version>${sa-token.version}</version>
+      </dependency>
+      <!-- Sa-Token 整合 SpringAOP 实现注解鉴权 -->
+      <dependency>
+        <groupId>cn.dev33</groupId>
+        <artifactId>sa-token-spring-aop</artifactId>
+        <version>${sa-token.version}</version>
+      </dependency>
+      <!-- Sa-Token 整合 Redis （使用 jdk 默认序列化方式） -->
+      <dependency>
+        <groupId>cn.dev33</groupId>
+        <artifactId>sa-token-redis</artifactId>
+        <version>${sa-token.version}</version>
+      </dependency>
+      <!-- 提供redis连接池 -->
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-pool2</artifactId>
+        <version>${commons-pool2.version}</version>
+      </dependency>
+      <!-- Sa-Token 整合 jwt -->
+      <dependency>
+        <groupId>cn.dev33</groupId>
+        <artifactId>sa-token-jwt</artifactId>
+        <version>${sa-token.version}</version>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>${commons-lang3.version}</version>
+      </dependency>
+      <!-- 文件读取依赖 -->
+      <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>${commons-io.version}</version>
+      </dependency>
+      <!-- https://hutool.cn/docs/index.html#/-->
+      <dependency>
+        <groupId>cn.hutool</groupId>
+        <artifactId>hutool-all</artifactId>
+        <version>${hutool.version}</version>
+      </dependency>
+      <!-- redisson -->
+      <dependency>
+        <groupId>org.redisson</groupId>
+        <artifactId>redisson</artifactId>
+        <version>${redisson.version}</version>
+      </dependency>
+      <!-- Netty 依赖配置 -->
+      <dependency>
+        <groupId>io.netty</groupId>
+        <artifactId>netty-all</artifactId>
+        <version>${netty-all.version}</version>
+      </dependency>
+      <!-- 离线ip库 -->
+      <dependency>
+        <groupId>org.lionsoul</groupId>
+        <artifactId>ip2region</artifactId>
+        <version>${ip2region.version}</version>
+      </dependency>
+      <!-- 文件上传依赖 -->
+      <!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
+      <dependency>
+        <groupId>commons-fileupload</groupId>
+        <artifactId>commons-fileupload</artifactId>
+        <version>${commons-fileupload.version}</version>
+      </dependency>
+      <!--Mysql数据库驱动-->
+      <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>${mysql.version}</version>
+        <scope>runtime</scope>
       </dependency>
       <!-- lombok -->
       <dependency>
@@ -84,73 +284,23 @@
         <artifactId>lombok</artifactId>
         <version>${lombok.version}</version>
       </dependency>
-      <!-- hutool -->
       <dependency>
-        <groupId>cn.hutool</groupId>
-        <artifactId>hutool-all</artifactId>
-        <version>${hutool.version}</version>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-api</artifactId>
+        <version>${junit.version}</version>
+        <scope>test</scope>
       </dependency>
+      <!-- okhttp -->
       <dependency>
         <groupId>com.squareup.okhttp3</groupId>
         <artifactId>okhttp</artifactId>
         <version>${okhttp.version}</version>
       </dependency>
+      <!-- jsoup -->
       <dependency>
         <groupId>org.jsoup</groupId>
         <artifactId>jsoup</artifactId>
         <version>${jsoup.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.baomidou</groupId>
-        <artifactId>mybatis-plus-boot-starter</artifactId>
-        <version>${mybatis-plus-boot-starter.version}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>com.github.binarywang</groupId>
-        <artifactId>weixin-java-mp</artifactId>
-        <version>${weixin-java-mp.version}</version>
-      </dependency>
-      <!-- netty -->
-      <dependency>
-        <groupId>io.netty</groupId>
-        <artifactId>netty-all</artifactId>
-        <version>${netty-all.version}</version>
-      </dependency>
-
-      <!-- MyBatis-->
-      <dependency>
-        <groupId>org.mybatis</groupId>
-        <artifactId>mybatis</artifactId>
-        <version>${mybatis.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.baomidou</groupId>
-        <artifactId>mybatis-plus-generator</artifactId>
-        <version>${mybatis-plus-generator.version}</version>
-      </dependency>
-      <!--Mysql数据库驱动-->
-      <dependency>
-        <groupId>mysql</groupId>
-        <artifactId>mysql-connector-java</artifactId>
-        <version>${mysql-connector.version}</version>
-      </dependency>
-      <!--JWT(Json Web Token)登录支持-->
-      <dependency>
-        <groupId>io.jsonwebtoken</groupId>
-        <artifactId>jjwt</artifactId>
-        <version>${jjwt.version}</version>
-      </dependency>
-      <!-- 阿里云OSS -->
-      <dependency>
-        <groupId>io.minio</groupId>
-        <artifactId>minio</artifactId>
-        <version>${minio.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.redisson</groupId>
-        <artifactId>redisson-spring-boot-starter</artifactId>
-        <version>${redisson-spring-boot-starter.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>

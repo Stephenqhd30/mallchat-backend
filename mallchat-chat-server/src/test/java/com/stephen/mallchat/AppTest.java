@@ -1,4 +1,4 @@
-package com.stephen.popcorn;
+package com.stephen.mallchat;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

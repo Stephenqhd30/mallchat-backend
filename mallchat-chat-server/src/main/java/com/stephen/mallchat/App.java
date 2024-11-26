@@ -1,12 +1,11 @@
-package com.stephen.popcorn;
+package com.stephen.mallchat;
 
 /**
  * Hello world!
  *
  */
-@SpringBoot
-public class App 
-{
+
+public class App {
     public static void main( String[] args )
     {
         System.out.println( "Hello World!" );
